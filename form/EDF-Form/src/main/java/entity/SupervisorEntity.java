@@ -1,8 +1,7 @@
 package entity;
 
 import jakarta.persistence.*;
-
-import java.sql.Date;
+import java.util.Date;
 import java.sql.Timestamp;
 
 @Entity
@@ -36,9 +35,6 @@ public class SupervisorEntity {
     @Basic
     @Column(name = "student_id")
     private Integer studentId;
-    @ManyToOne
-    @JoinColumn(name = "student_id", referencedColumnName = "id")
-    private StudentEntity studentByStudentId;
 
     public int getId() {
         return id;
@@ -151,13 +147,5 @@ public class SupervisorEntity {
         result = 31 * result + (supervisorCompletedTime != null ? supervisorCompletedTime.hashCode() : 0);
         result = 31 * result + (studentId != null ? studentId.hashCode() : 0);
         return result;
-    }
-
-    public StudentEntity getStudentByStudentId() {
-        return studentByStudentId;
-    }
-
-    public void setStudentByStudentId(StudentEntity studentByStudentId) {
-        this.studentByStudentId = studentByStudentId;
     }
 }

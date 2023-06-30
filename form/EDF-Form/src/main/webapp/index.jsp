@@ -6,6 +6,18 @@
     <meta charset="UTF-8">
     <title>EDF Form</title>
     <link rel="stylesheet" href="css/site.css">
+    <script>
+        window.onload = function () {
+            var elements = document.querySelectorAll("input, textarea");
+            for (var i = 0; i < elements.length; i++) {
+                var element = elements[i];
+                var elementName = element.name.toLowerCase();
+                if (elementName.includes("odhr") || elementName.includes("supervisor")) {
+                    element.disabled = true;
+                }
+            }
+        };
+    </script>
 </head>
 
 <body>
@@ -17,7 +29,7 @@
 <main>
     <h1>REQUEST FOR EMPLOYEE DEVELOPMENT FUNDS</h1>
 
-    <form action="" method="POST">
+    <form method="POST" action="${pageContext.request.contextPath}/submit">
         <fieldset>
             <legend>1. Employee Information</legend>
             <div>
@@ -43,14 +55,14 @@
             <div>
                 <%--@declare id="budget"--%><label for="budget">Budget information:</label>
                 <div>
-                    <label for="index">Index:</label>
+                    <label for="studentIndexNum">Index:</label>
                     <!-- The following field is something that should be editable by an admin not the applicant -->
-                    <input type="text" id="index" name="index">
+                    <input type="text" id="studentIndexNum" name="studentIndexNum">
                 </div>
                 <div>
-                    <label for="account">Account #:</label>
+                    <label for="studentAccountNum">Account #:</label>
                     <!-- The following field is something that should be editable by an admin not the applicant -->
-                    <input type="text" id="account" name="account">
+                    <input type="text" id="studentAccountNum" name="studentAccountNum">
                 </div>
             </div>
             <p>
@@ -81,7 +93,7 @@
                 <input type="text" id="collegeName" name="collegeName">
             </div>
             <div>
-                <label for="courseDates">Course dates:</label>
+                <%--@declare id="coursedates"--%><label for="courseDates">Course dates:</label>
                 <div>
                     <label for="collegeCoursestartDate">Start:</label>
                     <input type="date" id="collegeCoursestartDate" name="collegeCoursestartDate">
@@ -138,10 +150,10 @@
             </p>
             <input type="radio" id="valenciaPaysDirectly" name="collegeTuitionType" value="valenciaPaysDirectly">
             <label for="valenciaPaysDirectly">Valencia pays institution directly</label>
-            <input type="radio" id="valenciaReimburses" name="CollegeTuitionType" value="valenciaReimburses">
+            <input type="radio" id="valenciaReimburses" name="collegeTuitionType" value="valenciaReimburses">
             <label for="valenciaReimburses">Valencia reimburses employee for out of pocket tuition cost</label>
             <p>
-                If you selected “Valencia pays institution directly,” submit a check request form along with this
+            If you selected “Valencia pays institution directly,” submit a check request form along with this
                 application. Payee will be your institution. Include printout of your tuition invoice and class schedule.
                 If
                 you selected “Valencia reimburses employee for out of pocket cost,” please submit a check request
@@ -164,7 +176,7 @@
                 <input type="text" id="employerLocation" name="employerLocation">
             </div>
             <div>
-                <label for="trainingDates">Dates:</label>
+                <%--@declare id="trainingdates"--%><label for="trainingDates">Dates:</label>
                 <div>
                     <label for="employerLocationstartDate">Start:</label>
                     <input type="date" id="employerLocationstartDate" name="employerLocationstartDate">

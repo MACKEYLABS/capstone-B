@@ -1,8 +1,7 @@
 package entity;
 
 import jakarta.persistence.*;
-
-import java.sql.Date;
+import java.util.Date;
 import java.sql.Timestamp;
 
 @Entity
@@ -14,10 +13,10 @@ public class OdhrEntity {
     private int id;
     @Basic
     @Column(name = "odhr_funds")
-    private Byte odhrFunds;
+    private String odhrFunds;
     @Basic
     @Column(name = "odhr_eligibility")
-    private Byte odhrEligibility;
+    private String odhrEligibility;
     @Basic
     @Column(name = "odhr_comment")
     private String odhrComment;
@@ -51,19 +50,19 @@ public class OdhrEntity {
         this.id = id;
     }
 
-    public Byte getOdhrFunds() {
+    public String getOdhrFunds() {
         return odhrFunds;
     }
 
-    public void setOdhrFunds(Byte odhrFunds) {
+    public void setOdhrFunds(String odhrFunds) {
         this.odhrFunds = odhrFunds;
     }
 
-    public Byte getOdhrEligibility() {
+    public String getOdhrEligibility() {
         return odhrEligibility;
     }
 
-    public void setOdhrEligibility(Byte odhrEligibility) {
+    public void setOdhrEligibility(String odhrEligibility) {
         this.odhrEligibility = odhrEligibility;
     }
 

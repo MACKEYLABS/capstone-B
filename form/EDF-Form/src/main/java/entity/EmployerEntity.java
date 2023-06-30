@@ -3,7 +3,7 @@ package entity;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.Date;
 import java.sql.Timestamp;
 
 @Entity
@@ -33,7 +33,7 @@ public class EmployerEntity {
     private BigDecimal employerRegistrationCost;
     @Basic
     @Column(name = "employer_registration_pay")
-    private Byte employerRegistrationPay;
+    private String employerRegistrationPay;
     @Basic
     @Column(name = "employer_email")
     private String employerEmail;
@@ -103,11 +103,11 @@ public class EmployerEntity {
         this.employerRegistrationCost = employerRegistrationCost;
     }
 
-    public Byte getEmployerRegistrationPay() {
+    public String getEmployerRegistrationPay() {
         return employerRegistrationPay;
     }
 
-    public void setEmployerRegistrationPay(Byte employerRegistrationPay) {
+    public void setEmployerRegistrationPay(String employerRegistrationPay) {
         this.employerRegistrationPay = employerRegistrationPay;
     }
 
@@ -128,6 +128,7 @@ public class EmployerEntity {
     }
 
     public Timestamp getEmployerCompletedTime() {
+
         return employerCompletedTime;
     }
 

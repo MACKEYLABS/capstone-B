@@ -3,7 +3,7 @@ package entity;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.Date;
 import java.sql.Timestamp;
 
 @Entity
@@ -36,13 +36,13 @@ public class CollegeEntity {
     private Date collegeCourseendDate;
     @Basic
     @Column(name = "college_partof_degree")
-    private Byte collegePartofDegree;
+    private String collegePartofDegree;
     @Basic
     @Column(name = "college_degree_type")
-    private Byte collegeDegreeType;
+    private String collegeDegreeType;
     @Basic
     @Column(name = "college_tuition_type")
-    private Byte collegeTuitionType;
+    private String collegeTuitionType;
     @Basic
     @Column(name = "college_email")
     private String collegeEmail;
@@ -60,7 +60,7 @@ public class CollegeEntity {
     private BigDecimal collegeTuitionCost;
     @Basic
     @Column(name = "college_funds_requested")
-    private Byte collegeFundsRequested;
+    private String collegeFundsRequested;
 
     public int getId() {
         return id;
@@ -126,27 +126,27 @@ public class CollegeEntity {
         this.collegeCourseendDate = collegeCourseendDate;
     }
 
-    public Byte getCollegePartofDegree() {
+    public String getCollegePartofDegree() {
         return collegePartofDegree;
     }
 
-    public void setCollegePartofDegree(Byte collegePartofDegree) {
+    public void setCollegePartofDegree(String collegePartofDegree) {
         this.collegePartofDegree = collegePartofDegree;
     }
 
-    public Byte getCollegeDegreeType() {
+    public String getCollegeDegreeType() {
         return collegeDegreeType;
     }
 
-    public void setCollegeDegreeType(Byte collegeDegreeType) {
+    public void setCollegeDegreeType(String collegeDegreeType) {
         this.collegeDegreeType = collegeDegreeType;
     }
 
-    public Byte getCollegeTuitionType() {
+    public String getCollegeTuitionType() {
         return collegeTuitionType;
     }
 
-    public void setCollegeTuitionType(Byte collegeTuitionType) {
+    public void setCollegeTuitionType(String collegeTuitionType) {
         this.collegeTuitionType = collegeTuitionType;
     }
 
@@ -190,11 +190,11 @@ public class CollegeEntity {
         this.collegeTuitionCost = collegeTuitionCost;
     }
 
-    public Byte getCollegeFundsRequested() {
+    public String getCollegeFundsRequested() {
         return collegeFundsRequested;
     }
 
-    public void setCollegeFundsRequested(Byte collegeFundsRequested) {
+    public void setCollegeFundsRequested(String collegeFundsRequested) {
         this.collegeFundsRequested = collegeFundsRequested;
     }
 

@@ -1,10 +1,8 @@
 package entity;
 
 import jakarta.persistence.*;
-
-import java.sql.Date;
+import java.util.Date;
 import java.sql.Timestamp;
-import java.util.Collection;
 
 @Entity
 @Table(name = "student", schema = "edfDB", catalog = "")
@@ -52,12 +50,12 @@ public class StudentEntity {
     @Basic
     @Column(name = "student_completed_time")
     private Timestamp studentCompletedTime;
-    @OneToMany(mappedBy = "studentByStudentId")
-    private Collection<CollegeEntity> collegesById;
-    @OneToMany(mappedBy = "studentByStudentId")
-    private Collection<EmployerEntity> employersById;
-    @OneToMany(mappedBy = "studentByStudentId")
-    private Collection<OdhrEntity> odhrsById;
+    @Basic
+    @Column(name = "student_index_num")
+    private String studentIndexNum;
+    @Basic
+    @Column(name = "student_account_num")
+    private String studentAccountNum;
 
     public int getId() {
         return id;
@@ -171,6 +169,22 @@ public class StudentEntity {
         this.studentCompletedTime = studentCompletedTime;
     }
 
+    public String getStudentIndexNum() {
+        return studentIndexNum;
+    }
+
+    public void setStudentIndexNum(String studentIndexNum) {
+        this.studentIndexNum = studentIndexNum;
+    }
+
+    public String getStudentAccountNum() {
+        return studentAccountNum;
+    }
+
+    public void setStudentAccountNum(String studentAccountNum) {
+        this.studentAccountNum = studentAccountNum;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -201,6 +215,10 @@ public class StudentEntity {
             return false;
         if (studentCompletedTime != null ? !studentCompletedTime.equals(that.studentCompletedTime) : that.studentCompletedTime != null)
             return false;
+        if (studentIndexNum != null ? !studentIndexNum.equals(that.studentIndexNum) : that.studentIndexNum != null)
+            return false;
+        if (studentAccountNum != null ? !studentAccountNum.equals(that.studentAccountNum) : that.studentAccountNum != null)
+            return false;
 
         return true;
     }
@@ -221,30 +239,8 @@ public class StudentEntity {
         result = 31 * result + (studentFormType != null ? studentFormType.hashCode() : 0);
         result = 31 * result + (studentStatus != null ? studentStatus.hashCode() : 0);
         result = 31 * result + (studentCompletedTime != null ? studentCompletedTime.hashCode() : 0);
+        result = 31 * result + (studentIndexNum != null ? studentIndexNum.hashCode() : 0);
+        result = 31 * result + (studentAccountNum != null ? studentAccountNum.hashCode() : 0);
         return result;
-    }
-
-    public Collection<CollegeEntity> getCollegesById() {
-        return collegesById;
-    }
-
-    public void setCollegesById(Collection<CollegeEntity> collegesById) {
-        this.collegesById = collegesById;
-    }
-
-    public Collection<EmployerEntity> getEmployersById() {
-        return employersById;
-    }
-
-    public void setEmployersById(Collection<EmployerEntity> employersById) {
-        this.employersById = employersById;
-    }
-
-    public Collection<OdhrEntity> getOdhrsById() {
-        return odhrsById;
-    }
-
-    public void setOdhrsById(Collection<OdhrEntity> odhrsById) {
-        this.odhrsById = odhrsById;
     }
 }
